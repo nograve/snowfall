@@ -9,12 +9,14 @@ class Snowflakes extends StatefulWidget {
   final int numberOfSnowflakes;
   final Color color;
   final int alpha;
-  final double minSize = 20;
-  final double maxSize = 120;
+  final double minSize;
+  final double maxSize;
   const Snowflakes(
       {required this.numberOfSnowflakes,
       required this.color,
       required this.alpha,
+      required this.minSize,
+      required this.maxSize,
       Key? key})
       : super(key: key);
 

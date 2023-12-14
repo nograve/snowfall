@@ -59,6 +59,7 @@ class SnowflakeModel {
           curve: Curves.easeIn),
     ]); */
     animationProgress = AnimationProgress(duration: duration, startTime: time);
+    assert(minSize > maxSize, "minSize can't be greater than maxSize");
     size = minSize +
         random.nextDouble() * (maxSize > minSize ? maxSize - minSize : 0);
     drawPath();

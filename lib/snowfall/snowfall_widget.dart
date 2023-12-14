@@ -23,9 +23,12 @@ class SnowfallWidget extends StatelessWidget {
         children: <Widget>[
           Positioned.fill(
               child: Snowflakes(
-                  numberOfSnowflakes: numberOfSnowflakes,
-                  color: color,
-                  alpha: alpha)),
+            numberOfSnowflakes: numberOfSnowflakes,
+            color: color,
+            alpha: alpha,
+            minSize: minSize,
+            maxSize: maxSize,
+          )),
           Positioned.fill(child: child),
         ],
       );
