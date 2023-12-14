@@ -31,6 +31,9 @@ class _SnowflakesState extends State<Snowflakes> {
 
   @override
   void initState() {
+    assert(widget.minSize > 0 && widget.maxSize > 0);
+    assert(widget.minSize < widget.maxSize,
+        "minSize can't be greater than maxSize");
     List.generate(widget.numberOfSnowflakes, (index) {
       flakes.add(SnowflakeModel(
         random,
