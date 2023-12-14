@@ -9,6 +9,8 @@ class Snowflakes extends StatefulWidget {
   final int numberOfSnowflakes;
   final Color color;
   final int alpha;
+  final double minSize = 20;
+  final double maxSize = 120;
   const Snowflakes(
       {required this.numberOfSnowflakes,
       required this.color,
@@ -17,7 +19,7 @@ class Snowflakes extends StatefulWidget {
       : super(key: key);
 
   @override
-  _SnowflakesState createState() => _SnowflakesState();
+  State createState() => _SnowflakesState();
 }
 
 class _SnowflakesState extends State<Snowflakes> {
@@ -28,7 +30,11 @@ class _SnowflakesState extends State<Snowflakes> {
   @override
   void initState() {
     List.generate(widget.numberOfSnowflakes, (index) {
-      flakes.add(SnowflakeModel(random));
+      flakes.add(SnowflakeModel(
+        random,
+        minSize: widget.minSize,
+        maxSize: widget.maxSize,
+      ));
     });
     super.initState();
   }

@@ -6,13 +6,17 @@ class SnowfallWidget extends StatelessWidget {
   final Color color;
   final int numberOfSnowflakes;
   final int alpha;
-  const SnowfallWidget(
-      {Key? key,
-      required this.child,
-      this.numberOfSnowflakes = 30,
-      this.color = Colors.white,
-      this.alpha = 180})
-      : super(key: key);
+  final double minSize;
+  final double maxSize;
+  const SnowfallWidget({
+    Key? key,
+    required this.child,
+    this.numberOfSnowflakes = 30,
+    this.color = Colors.white,
+    this.alpha = 180,
+    this.minSize = 20,
+    this.maxSize = 120,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Stack(

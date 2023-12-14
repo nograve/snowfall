@@ -31,7 +31,7 @@ class SnowfallRendering extends StatefulWidget {
       : super(key: key);
 
   @override
-  _SnowfallRenderingState createState() => _SnowfallRenderingState();
+  State createState() => _SnowfallRenderingState();
 }
 
 class _SnowfallRenderingState extends State<SnowfallRendering>

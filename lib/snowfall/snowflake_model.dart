@@ -32,8 +32,10 @@ class SnowflakeModel {
   AnimationProgress? animationProgress;
   math.Random random;
   Path? _path;
+  double minSize;
+  double maxSize;
 
-  SnowflakeModel(this.random) {
+  SnowflakeModel(this.random, {required this.minSize, required this.maxSize}) {
     restart();
   }
 
@@ -57,7 +59,7 @@ class SnowflakeModel {
           curve: Curves.easeIn),
     ]); */
     animationProgress = AnimationProgress(duration: duration, startTime: time);
-    size = 20 + random.nextDouble() * 100;
+    size = minSize + random.nextDouble() * (maxSize - minSize);
     drawPath();
   }
 
