@@ -59,7 +59,8 @@ class SnowflakeModel {
           curve: Curves.easeIn),
     ]); */
     animationProgress = AnimationProgress(duration: duration, startTime: time);
-    size = minSize + random.nextDouble() * (maxSize - minSize);
+    size = minSize +
+        random.nextDouble() * (maxSize > minSize ? maxSize - minSize : 0);
     drawPath();
   }
 
