@@ -21,9 +21,9 @@ class SnowfallWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => isEnabled
-      ? Stack(
-          children: <Widget>[
+  Widget build(BuildContext context) => Stack(
+        children: <Widget>[
+          if (isEnabled)
             Positioned.fill(
                 child: Snowflakes(
               numberOfSnowflakes: numberOfSnowflakes,
@@ -32,8 +32,7 @@ class SnowfallWidget extends StatelessWidget {
               minSize: minSize,
               maxSize: maxSize,
             )),
-            Positioned.fill(child: child),
-          ],
-        )
-      : const SizedBox.shrink();
+          Positioned.fill(child: child),
+        ],
+      );
 }
