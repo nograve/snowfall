@@ -3,6 +3,7 @@ import 'package:snowfall/snowfall/snowflakes.dart';
 
 class SnowfallWidget extends StatelessWidget {
   final Widget child;
+  final bool isEnabled;
   final Color color;
   final int numberOfSnowflakes;
   final int alpha;
@@ -11,6 +12,7 @@ class SnowfallWidget extends StatelessWidget {
   const SnowfallWidget({
     Key? key,
     required this.child,
+    required this.isEnabled,
     this.numberOfSnowflakes = 30,
     this.color = Colors.white,
     this.alpha = 180,
@@ -19,17 +21,19 @@ class SnowfallWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Stack(
-        children: <Widget>[
-          Positioned.fill(
-              child: Snowflakes(
-            numberOfSnowflakes: numberOfSnowflakes,
-            color: color,
-            alpha: alpha,
-            minSize: minSize,
-            maxSize: maxSize,
-          )),
-          Positioned.fill(child: child),
-        ],
-      );
+  Widget build(BuildContext context) => isEnabled
+      ? Stack(
+          children: <Widget>[
+            Positioned.fill(
+                child: Snowflakes(
+              numberOfSnowflakes: numberOfSnowflakes,
+              color: color,
+              alpha: alpha,
+              minSize: minSize,
+              maxSize: maxSize,
+            )),
+            Positioned.fill(child: child),
+          ],
+        )
+      : const SizedBox.shrink();
 }
